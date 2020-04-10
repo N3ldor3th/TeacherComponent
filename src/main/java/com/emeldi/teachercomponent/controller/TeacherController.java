@@ -16,6 +16,9 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
+    @Autowired
+    private TeacherValidationService validationService;
+
     @GetMapping
     public List<Teacher> findAll() {
         return teacherService.findAll();
@@ -29,7 +32,7 @@ public class TeacherController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Long create(@RequestBody Teacher teacher) {
-        if (TeacherValidationService.validateTeacher(teacher)) {
+        if (validationService.validateTeacher(teacher)) {
             return teacherService.create(teacher);
         } else {
             return null;
@@ -40,7 +43,7 @@ public class TeacherController {
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable( "id" ) Long id, @RequestBody Teacher teacher) {
-        if (TeacherValidationService.validateTeacher(teacher)) {
+        if (validationService.validateTeacher(teacher)) {
             teacherService.update(id, teacher);
         }
     }
