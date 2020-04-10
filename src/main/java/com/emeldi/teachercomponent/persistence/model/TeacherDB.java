@@ -1,21 +1,33 @@
-package com.emeldi.teachercomponent.model;
+package com.emeldi.teachercomponent.persistence.model;
 
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
-public class Teacher {
+@Entity
+@Table(name = "teacher")
+public class TeacherDB {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String skype;
     private String name;
     private String surname;
     private String country;
-    private Set<Language> languages;
-    private Set<TimeSlot> timeSlots;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "teacher_id")
+    private Set<LanguageDB> languages = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "timeSlot_id")
+    private Set<TimeSlotDB> timeSlots = new HashSet<>();
 
-    public Teacher(Long id, String email, String skype, String name, String surname, String country, Set<Language> languages, Set<TimeSlot> timeSlots) {
+    public TeacherDB(Long id, String email, String skype, String name, String surname, String country, Set<LanguageDB> languages, Set<TimeSlotDB> timeSlots) {
         this.id = id;
         this.email = email;
-        this.email = skype;
+        this.skype = skype;
         this.name = name;
         this.surname = surname;
         this.country = country;
@@ -23,7 +35,7 @@ public class Teacher {
         this.timeSlots = timeSlots;
     }
 
-    public Teacher() {
+    public TeacherDB() {
     }
 
     public Long getId() {
@@ -74,33 +86,19 @@ public class Teacher {
         this.country = country;
     }
 
-    public Set<Language> getLanguages() {
+    public Set<LanguageDB> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(Set<Language> languages) {
+    public void setLanguages(Set<LanguageDB> languages) {
         this.languages = languages;
     }
 
-    public Set<TimeSlot> getTimeSlots() {
+    public Set<TimeSlotDB> getTimeSlots() {
         return timeSlots;
     }
 
-    public void setTimeSlots(Set<TimeSlot> timeSlots) {
+    public void setTimeSlots(Set<TimeSlotDB> timeSlots) {
         this.timeSlots = timeSlots;
-    }
-
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", skype='" + skype + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", country='" + country + '\'' +
-                ", languages=" + languages +
-                ", timeSlots=" + timeSlots +
-                '}';
     }
 }

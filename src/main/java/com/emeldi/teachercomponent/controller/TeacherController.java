@@ -1,7 +1,7 @@
 package com.emeldi.teachercomponent.controller;
 
 import com.emeldi.teachercomponent.model.Teacher;
-import com.emeldi.teachercomponent.service.ITeacherService;
+import com.emeldi.teachercomponent.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 public class TeacherController {
 
     @Autowired
-    private ITeacherService teacherService;
+    private TeacherService teacherService;
 
     @GetMapping
     public List<Teacher> findAll() {

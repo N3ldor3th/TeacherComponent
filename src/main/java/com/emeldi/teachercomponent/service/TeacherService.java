@@ -4,7 +4,7 @@ import com.emeldi.teachercomponent.model.Teacher;
 
 import java.util.List;
 
-public interface ITeacherService {
+public interface TeacherService {
 
     List<Teacher> findAll();
 
