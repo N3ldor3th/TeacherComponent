@@ -31,7 +31,22 @@ public class RepositoryConfig {
             teacher1.setCountry("Czech Republic");
             teacher1.setLanguages(Set.of(language1, language2, language3));
             teacher1.setTimeSlots(Set.of(timeSlot1, timeSlot2));
+
+            TeacherDB teacher2 = new TeacherDB();
+            LanguageDB language4 = new LanguageDB("fi","Finnish");
+            LanguageDB language5 = new LanguageDB("de","German");
+            TimeSlotDB timeSlot3 = new TimeSlotDB(DayOfWeek.SUNDAY, LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(2).plusMinutes(120));
+            TimeSlotDB timeSlot4 = new TimeSlotDB(DayOfWeek.MONDAY, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(3).plusMinutes(90));
+            teacher1.setName("Aneta");
+            teacher1.setSurname("Ruzickova");
+            teacher1.setEmail("ruzickovaAneta@gmail.com");
+            teacher1.setSkype("ruzickovaAneta");
+            teacher1.setCountry("Slovak");
+            teacher1.setLanguages(Set.of(language4, language5));
+            teacher1.setTimeSlots(Set.of(timeSlot3, timeSlot4));
+
             teacherRepository.save(teacher1);
+            teacherRepository.save(teacher2);
         };
     }
 }
