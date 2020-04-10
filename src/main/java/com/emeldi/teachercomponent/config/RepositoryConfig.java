@@ -37,13 +37,13 @@ public class RepositoryConfig {
             LanguageDB language5 = new LanguageDB("de","German");
             TimeSlotDB timeSlot3 = new TimeSlotDB(DayOfWeek.SUNDAY, LocalDateTime.now().plusDays(2), LocalDateTime.now().plusDays(2).plusMinutes(120));
             TimeSlotDB timeSlot4 = new TimeSlotDB(DayOfWeek.MONDAY, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(3).plusMinutes(90));
-            teacher1.setName("Aneta");
-            teacher1.setSurname("Ruzickova");
-            teacher1.setEmail("ruzickovaAneta@gmail.com");
-            teacher1.setSkype("ruzickovaAneta");
-            teacher1.setCountry("Slovak");
-            teacher1.setLanguages(Set.of(language4, language5));
-            teacher1.setTimeSlots(Set.of(timeSlot3, timeSlot4));
+            teacher2.setName("Aneta");
+            teacher2.setSurname("Ruzickova");
+            teacher2.setEmail("ruzickovaAneta@gmail.com");
+            teacher2.setSkype("ruzickovaAneta");
+            teacher2.setCountry("Slovak");
+            teacher2.setLanguages(Set.of(language4, language5));
+            teacher2.setTimeSlots(Set.of(timeSlot3, timeSlot4));
 
             teacherRepository.save(teacher1);
             teacherRepository.save(teacher2);

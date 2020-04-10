@@ -1,11 +1,8 @@
 package com.emeldi.teachercomponent.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.Set;
 
 public class Teacher {
-    @JsonIgnore
     private Long id;
     private String email;
     private String skype;

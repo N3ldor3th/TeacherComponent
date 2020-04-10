@@ -72,7 +72,8 @@ public class TeacherServiceImpl implements TeacherService {
         teacherDB.setName(teacher.getName());
         teacherDB.setSurname(teacher.getSurname());
         teacherDB.setSkype(teacher.getSkype());
-        if (!CollectionUtils.isEmpty(teacher.getLanguages())) {
+        // TODO : not working properly
+/*        if (!CollectionUtils.isEmpty(teacher.getLanguages())) {
             Set<LanguageDB> languagesUpdated = teacherDB.getLanguages();
             languagesUpdated.clear();
             teacher.getLanguages().forEach(language -> {
@@ -94,7 +95,7 @@ public class TeacherServiceImpl implements TeacherService {
                 timeSlotsUpdated.add(timeSlotUpdated);
             });
             teacherDB.getTimeSlots().addAll(timeSlotsUpdated);
-        }
+        }*/
         return teacherDB;
     }
 }

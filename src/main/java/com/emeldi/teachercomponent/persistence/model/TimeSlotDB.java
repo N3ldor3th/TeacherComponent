@@ -14,6 +14,15 @@ public class TimeSlotDB {
     private DayOfWeek weekDay;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    @ManyToOne
+    private TeacherDB teacherDB;
+
+    public TimeSlotDB(DayOfWeek weekDay, LocalDateTime startTime, LocalDateTime endTime, TeacherDB teacherDB) {
+        this.weekDay = weekDay;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.teacherDB = teacherDB;
+    }
 
     public TimeSlotDB(DayOfWeek weekDay, LocalDateTime startTime, LocalDateTime endTime) {
         this.weekDay = weekDay;
@@ -54,5 +63,13 @@ public class TimeSlotDB {
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
+    }
+
+    public TeacherDB getTeacherDB() {
+        return teacherDB;
+    }
+
+    public void setTeacherDB(TeacherDB teacherDB) {
+        this.teacherDB = teacherDB;
     }
 }

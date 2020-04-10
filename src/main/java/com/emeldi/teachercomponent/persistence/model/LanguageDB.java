@@ -11,6 +11,14 @@ public class LanguageDB {
     @Column(unique = true)
     private String code;
     private String name;
+    @ManyToOne
+    private TeacherDB teacherDB;
+
+    public LanguageDB(String code, String name, TeacherDB teacherDB) {
+        this.code = code;
+        this.name = name;
+        this.teacherDB = teacherDB;
+    }
 
     public LanguageDB(String code, String name) {
         this.code = code;
@@ -42,5 +50,13 @@ public class LanguageDB {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public TeacherDB getTeacherDB() {
+        return teacherDB;
+    }
+
+    public void setTeacherDB(TeacherDB teacherDB) {
+        this.teacherDB = teacherDB;
     }
 }
