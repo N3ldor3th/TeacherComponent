@@ -2,6 +2,7 @@ package com.emeldi.teachercomponent.controller;
 
 import com.emeldi.teachercomponent.model.Teacher;
 import com.emeldi.teachercomponent.service.TeacherService;
+import com.emeldi.teachercomponent.service.TeacherValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -28,13 +29,20 @@ public class TeacherController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Long create(@RequestBody Teacher teacher) {
-        return teacherService.create(teacher);
+        if (TeacherValidationService.validateTeacher(teacher)) {
+            return teacherService.create(teacher);
+        } else {
+            return null;
+        }
+
     }
 
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable( "id" ) Long id, @RequestBody Teacher resource) {
-        teacherService.update(id, resource);
+    public void update(@PathVariable( "id" ) Long id, @RequestBody Teacher teacher) {
+        if (TeacherValidationService.validateTeacher(teacher)) {
+            teacherService.update(id, teacher);
+        }
     }
 
     @DeleteMapping(value = "/{id}")
