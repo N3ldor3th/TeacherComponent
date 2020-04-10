@@ -7,6 +7,7 @@ import com.emeldi.teachercomponent.persistence.model.TeacherDB;
 import com.emeldi.teachercomponent.persistence.model.TimeSlotDB;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -25,6 +26,7 @@ public class TeacherServiceImpl implements TeacherService {
     private DozerBeanMapper mapper;
 
     @Override
+    @Cacheable("teachers")
     public List<Teacher> findAll() {
         List<TeacherDB> teachersDB = teacherRepository.findAll();
         List<Teacher> teachers = new ArrayList<>();
@@ -33,6 +35,7 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
+    @Cacheable("teacher")
     public Teacher findById(Long id) {
         Optional<TeacherDB> teacherDB = teacherRepository.findById(id);
         Teacher teacher = new Teacher();
