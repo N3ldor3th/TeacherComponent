@@ -12,7 +12,7 @@ public interface TeacherService {
 
     Long create(Teacher teacher);
 
-    void update(Teacher resource);
+    void update(Long id, Teacher resource);
 
     void deleteById(Long id);
 }

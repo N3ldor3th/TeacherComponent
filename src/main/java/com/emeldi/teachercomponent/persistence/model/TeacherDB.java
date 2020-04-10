@@ -24,8 +24,7 @@ public class TeacherDB {
     @JoinColumn(name = "timeSlot_id")
     private Set<TimeSlotDB> timeSlots = new HashSet<>();
 
-    public TeacherDB(Long id, String email, String skype, String name, String surname, String country, Set<LanguageDB> languages, Set<TimeSlotDB> timeSlots) {
-        this.id = id;
+    public TeacherDB(String email, String skype, String name, String surname, String country, Set<LanguageDB> languages, Set<TimeSlotDB> timeSlots) {
         this.email = email;
         this.skype = skype;
         this.name = name;

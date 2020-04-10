@@ -12,8 +12,7 @@ public class LanguageDB {
     private String code;
     private String name;
 
-    public LanguageDB(Long id, String code, String name) {
-        this.id = id;
+    public LanguageDB(String code, String name) {
         this.code = code;
         this.name = name;
     }

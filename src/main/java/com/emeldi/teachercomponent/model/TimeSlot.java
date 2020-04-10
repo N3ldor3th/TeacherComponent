@@ -1,16 +1,18 @@
 package com.emeldi.teachercomponent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 public class TimeSlot {
+    @JsonIgnore
     private Long id;
     private DayOfWeek weekDay;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    public TimeSlot(Long id, DayOfWeek weekDay, LocalDateTime startTime, LocalDateTime endTime) {
-        this.id = id;
+    public TimeSlot(DayOfWeek weekDay, LocalDateTime startTime, LocalDateTime endTime) {
         this.weekDay = weekDay;
         this.startTime = startTime;
         this.endTime = endTime;

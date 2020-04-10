@@ -1,8 +1,11 @@
 package com.emeldi.teachercomponent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Set;
 
 public class Teacher {
+    @JsonIgnore
     private Long id;
     private String email;
     private String skype;
@@ -12,8 +15,7 @@ public class Teacher {
     private Set<Language> languages;
     private Set<TimeSlot> timeSlots;
 
-    public Teacher(Long id, String email, String skype, String name, String surname, String country, Set<Language> languages, Set<TimeSlot> timeSlots) {
-        this.id = id;
+    public Teacher(String email, String skype, String name, String surname, String country, Set<Language> languages, Set<TimeSlot> timeSlots) {
         this.email = email;
         this.email = skype;
         this.name = name;

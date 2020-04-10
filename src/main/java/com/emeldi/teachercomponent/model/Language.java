@@ -1,12 +1,14 @@
 package com.emeldi.teachercomponent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Language {
+    @JsonIgnore
     private Long id;
     private String code;
     private String name;
 
-    public Language(Long id, String code, String name) {
-        this.id = id;
+    public Language(String code, String name) {
         this.code = code;
         this.name = name;
     }

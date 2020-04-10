@@ -15,8 +15,7 @@ public class TimeSlotDB {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    public TimeSlotDB(Long id, DayOfWeek weekDay, LocalDateTime startTime, LocalDateTime endTime) {
-        this.id = id;
+    public TimeSlotDB(DayOfWeek weekDay, LocalDateTime startTime, LocalDateTime endTime) {
         this.weekDay = weekDay;
         this.startTime = startTime;
         this.endTime = endTime;
