@@ -1,4 +1,4 @@
-package com.emeldi.TeacherComponent;
+package com.emeldi.teachercomponent;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

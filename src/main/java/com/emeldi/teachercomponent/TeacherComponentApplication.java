@@ -1,4 +1,4 @@
-package com.emeldi.TeacherComponent;
+package com.emeldi.teachercomponent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
